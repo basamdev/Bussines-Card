@@ -1,0 +1,494 @@
+/* ========================================
+   HAYAT Real Estate — Premium Link Page
+   Matches reference: dark olive · gold · glass
+   ======================================== */
+
+:root {
+  --bg: #3A4634;
+  --bg-deep: #2C3528;
+  --bg-mid: #4A5743;
+  --white: #ffffff;
+  --gold: #D4AF37;
+  --gold-soft: rgba(212, 175, 55, 0.55);
+  --gold-glow: rgba(212, 175, 55, 0.35);
+  --glass: rgba(20, 28, 18, 0.38);
+  --glass-hover: rgba(30, 40, 26, 0.5);
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.82);
+  --serif: "Playfair Display", Georgia, serif;
+  --display: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --sans: "Poppins", sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --radius-pill: 999px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--sans);
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at 50% 20%, var(--bg-mid) 0%, var(--bg) 48%, var(--bg-deep) 100%);
+  overflow-x: hidden;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+svg {
+  display: block;
+}
+
+/* ---------- Background decor ---------- */
+
+.bg-decor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.arc {
+  position: absolute;
+  top: -8%;
+  width: 55vw;
+  max-width: 420px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+}
+
+.arc-left {
+  left: -22%;
+}
+
+.arc-right {
+  right: -22%;
+}
+
+.palm {
+  position: absolute;
+  width: 280px;
+  height: 420px;
+  opacity: 0.16;
+  filter: blur(1.5px);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.palm-left {
+  left: -70px;
+  top: 18%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 320'%3E%3Cg fill='%23000' opacity='0.9'%3E%3Cpath d='M100 320 C98 240 70 200 20 150 C55 175 80 200 95 260 C90 180 55 120 10 70 C60 110 85 160 98 230 C95 150 70 90 30 30 C75 80 95 140 100 220 C105 140 125 80 170 30 C130 90 105 150 102 230 C115 160 140 110 190 70 C145 120 110 180 105 260 C120 200 145 175 180 150 C130 200 102 240 100 320Z'/%3E%3C/g%3E%3C/svg%3E");
+  transform: scaleX(-1) rotate(-8deg);
+}
+
+.palm-right {
+  right: -80px;
+  top: 22%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 320'%3E%3Cg fill='%23000' opacity='0.9'%3E%3Cpath d='M100 320 C98 240 70 200 20 150 C55 175 80 200 95 260 C90 180 55 120 10 70 C60 110 85 160 98 230 C95 150 70 90 30 30 C75 80 95 140 100 220 C105 140 125 80 170 30 C130 90 105 150 102 230 C115 160 140 110 190 70 C145 120 110 180 105 260 C120 200 145 175 180 150 C130 200 102 240 100 320Z'/%3E%3C/g%3E%3C/svg%3E");
+  transform: rotate(6deg);
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: float 16s ease-in-out infinite;
+}
+
+.orb-1 {
+  width: 260px;
+  height: 260px;
+  background: rgba(212, 175, 55, 0.2);
+  top: -60px;
+  left: 30%;
+}
+
+.orb-2 {
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.08);
+  bottom: 10%;
+  right: -40px;
+  animation-delay: -5s;
+}
+
+.orb-3 {
+  width: 180px;
+  height: 180px;
+  background: rgba(212, 175, 55, 0.12);
+  bottom: -40px;
+  left: -20px;
+  animation-delay: -9s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(12px, -18px);
+  }
+}
+
+/* ---------- Page ---------- */
+
+.page {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 420px);
+  margin: 0 auto;
+  padding: 52px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  min-height: 100vh;
+}
+
+/* ---------- Fade-in ---------- */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.85s var(--ease),
+    transform 0.85s var(--ease);
+  transition-delay: var(--delay, 0s);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Brand header ---------- */
+
+.brand {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.brand-logo {
+  width: 88px;
+  height: 88px;
+  margin-bottom: 14px;
+  margin-top: 8px;
+  filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.25));
+}
+
+.brand-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+.brand-agent {
+  margin: 0 0 4px;
+  padding-bottom: 14px;
+  font-family: var(--display);
+  font-size: clamp(2.35rem, 9vw, 3.15rem);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+  color: var(--white);
+  text-shadow: 0 6px 28px rgba(0, 0, 0, 0.28);
+  position: relative;
+}
+
+.brand-agent::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.brand-name {
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 9vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;
+  color: var(--white);
+  line-height: 1.05;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.brand-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  width: 100%;
+  max-width: 280px;
+  justify-content: center;
+}
+
+.brand-line .line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  opacity: 0.85;
+}
+
+.brand-tag {
+  font-family: var(--serif);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-indent: 0.14em;
+  color: var(--gold);
+  white-space: nowrap;
+}
+
+.brand-arabic {
+  margin-top: 8px;
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+  font-family: "Segoe UI", "Traditional Arabic", "Noto Naskh Arabic", serif;
+}
+
+.sparkle {
+  margin: 14px 0 10px;
+  display: flex;
+  justify-content: center;
+  filter: drop-shadow(0 0 6px var(--gold-glow));
+}
+
+.brand-subtitle {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  max-width: 300px;
+  font-family: "Segoe UI", "Noto Naskh Arabic", "Traditional Arabic", Tahoma, sans-serif;
+}
+
+/* ---------- Social glass buttons ---------- */
+
+.social-links {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.social-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 62px;
+  padding: 10px 20px 10px 10px;
+  border-radius: var(--radius-pill);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, transparent 40%),
+    var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--gold-soft);
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 0 18px rgba(212, 175, 55, 0.08);
+  transition:
+    transform 0.35s var(--ease),
+    box-shadow 0.35s var(--ease),
+    border-color 0.35s var(--ease),
+    background 0.35s ease;
+  overflow: hidden;
+}
+
+/* Top gold glint */
+.social-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 18%;
+  right: 18%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212, 175, 55, 0.95),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.social-btn:hover {
+  transform: scale(1.03) translateY(-2px);
+  border-color: rgba(212, 175, 55, 0.85);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 40%),
+    var(--glass-hover);
+  box-shadow:
+    0 14px 36px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 0 28px rgba(212, 175, 55, 0.22);
+}
+
+.social-btn:active {
+  transform: scale(0.985);
+}
+
+.social-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.social-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  color: var(--white);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-icon.facebook {
+  background: #1877f2;
+}
+
+.social-icon.tiktok {
+  background: #010101;
+}
+
+.social-icon.whatsapp {
+  background: #25d366;
+}
+
+.social-label {
+  flex: 1;
+  text-align: left;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: var(--white);
+}
+
+.social-arrow {
+  font-size: 0.7rem;
+  color: var(--gold);
+  opacity: 0.85;
+  transition: transform 0.3s var(--ease), opacity 0.3s ease;
+}
+
+.social-btn:hover .social-arrow {
+  transform: translateX(4px);
+  opacity: 1;
+}
+
+/* ---------- Footer ---------- */
+
+.footer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.footer .sparkle {
+  margin: 0 0 14px;
+}
+
+.values {
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.house-icon {
+  margin-top: 16px;
+  width: 42px;
+  opacity: 0.9;
+}
+
+.house-icon svg {
+  width: 100%;
+  height: auto;
+}
+
+.copyright {
+  margin-top: 18px;
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ---------- Desktop ---------- */
+
+@media (min-width: 768px) {
+  .page {
+    padding: 64px 24px 48px;
+    gap: 48px;
+  }
+
+  .brand-logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .social-btn {
+    min-height: 66px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb,
+  .fade-up,
+  .social-btn,
+  .social-arrow {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .fade-up {
+    opacity: 1;
+    transform: none;
+  }
+}
