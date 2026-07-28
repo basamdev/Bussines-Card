@@ -417,6 +417,122 @@ svg {
   opacity: 1;
 }
 
+button.social-btn {
+  font: inherit;
+  cursor: pointer;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* ---------- TikTok dual accounts ---------- */
+
+.tiktok-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tiktok-badge {
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #111;
+  background: linear-gradient(135deg, #f5e6a8, var(--gold));
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.35);
+}
+
+.tiktok-chevron {
+  transition: transform 0.35s var(--ease), opacity 0.3s ease;
+}
+
+.tiktok-toggle[aria-expanded="true"] .tiktok-chevron {
+  transform: rotate(180deg);
+}
+
+.tiktok-toggle:hover .tiktok-chevron {
+  transform: none;
+  opacity: 1;
+}
+
+.tiktok-toggle[aria-expanded="true"]:hover .tiktok-chevron {
+  transform: rotate(180deg);
+}
+
+.tiktok-accounts {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 2px 2px;
+  overflow: hidden;
+}
+
+.tiktok-accounts[hidden] {
+  display: none;
+}
+
+.tiktok-account {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 10px 16px 10px 10px;
+  border-radius: 18px;
+  background: rgba(12, 18, 10, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+  transition:
+    transform 0.3s var(--ease),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.tiktok-account:hover {
+  transform: scale(1.02);
+  border-color: rgba(212, 175, 55, 0.7);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+}
+
+.tiktok-account .social-icon {
+  width: 36px;
+  height: 36px;
+  font-size: 0.95rem;
+}
+
+.tiktok-account-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  text-align: left;
+}
+
+.tiktok-account-name {
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--white);
+}
+
+.tiktok-account-hint {
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
 /* ---------- Footer ---------- */
 
 .footer {

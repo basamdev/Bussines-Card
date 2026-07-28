@@ -5,6 +5,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   initFadeIn();
   initButtonPress();
+  initTikTokPicker();
 });
 
 function initFadeIn() {
@@ -36,5 +37,17 @@ function initButtonPress() {
     btn.addEventListener("pointerup", reset);
     btn.addEventListener("pointerleave", reset);
     btn.addEventListener("pointercancel", reset);
+  });
+}
+
+function initTikTokPicker() {
+  const toggle = document.querySelector(".tiktok-toggle");
+  const panel = document.getElementById("tiktok-accounts");
+  if (!toggle || !panel) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    toggle.setAttribute("aria-expanded", String(!isOpen));
+    panel.hidden = isOpen;
   });
 }
